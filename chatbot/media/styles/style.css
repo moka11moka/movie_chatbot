@@ -1,0 +1,7 @@
+.search-bar .v-toolbar__content {
+    padding: 0 12px !important;
+}
+
+.chat-list .v-list__tile__title {
+    height: fit-content !important;
+}
