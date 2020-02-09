@@ -3,9 +3,6 @@
 {% block style_content %}
 <style>
     [v-cloak] { display:none; }
-
-
-
 </style>
 
 {% endblock %}
@@ -14,53 +11,8 @@
 
 <div id="app">
     <v-app id="inspire" v-cloak class="white">
-<!--        <v-navigation-drawer app fixed stateless hide-overlay width="300" class="pb-0" v-model="drawer">-->
-<!--            <v-layout fill-height>-->
-<!--                <v-navigation-drawer dark stateless mini-variant value="true">-->
-<!--                    <v-toolbar flat class="transparent pt-4 mt-4">-->
-<!--                        <v-list class="pa-0">-->
-<!--                            <v-list-tile avatar>-->
-<!--                                <v-list-tile-avatar size="50">-->
-<!--                                    <v-img src="/media/img/gx.png"></v-img>-->
-<!--                                </v-list-tile-avatar>-->
-<!--                            </v-list-tile>-->
-<!--                        </v-list>-->
-<!--                    </v-toolbar>-->
-<!--                    <v-list class="pt-0">-->
-<!--                        <v-divider></v-divider>-->
-<!--                        <v-list-tile class="pt-4" active-class="green&#45;&#45;text darken-4" @click="chooseTab(1)" value="1">-->
-<!--                            <v-list-tile-action>-->
-<!--                                <v-icon size="30">textsms</v-icon>-->
-<!--                            </v-list-tile-action>-->
-<!--                            <v-list-tile-content>-->
-<!--                                <v-list-tile-title>Chat</v-list-tile-title>-->
-<!--                            </v-list-tile-content>-->
-<!--                        </v-list-tile>-->
-<!--                        <v-list-tile class="pt-4" @click="chooseTab(2)">-->
-<!--                            <v-list-tile-action>-->
-<!--                                <v-icon>contacts</v-icon>-->
-<!--                            </v-list-tile-action>-->
-<!--                            <v-list-tile-content>-->
-<!--                                <v-list-tile-title>Contacts</v-list-tile-title>-->
-<!--                            </v-list-tile-content>-->
-<!--                        </v-list-tile>-->
-<!--                    </v-list>-->
-<!--                </v-navigation-drawer>-->
-<!--                <chat-list v-if="tabType === 1" @selected="updateSelectedItem"></chat-list>-->
-<!--            </v-layout>-->
-<!--        </v-navigation-drawer>-->
-        <v-toolbar dark fixed app color="white" class="black--text">
-            <v-toolbar-title>系统客服</v-toolbar-title>
-        </v-toolbar>
-        <v-content>
-            <chat-window ref="chatWindow" @received="receivedMessage"></chat-window>
-        </v-content>
-        <v-footer style="padding-bottom: 30px;">
-            <v-textarea auto-grow rows="1" class="pl-2 white" v-model="message"></v-textarea>
-            <v-btn @click="sendMessage">Send</v-btn>
-        </v-footer>
+        {% block main_content %}{% endblock %}
     </v-app>
 </div>
-
 
 {% endblock %}

@@ -5,5 +5,14 @@
 {% endblock %}
 
 {% block main_content %}
-<chatbot-paneljob></chatbot-paneljob>
+<v-toolbar dark fixed app color="white" class="black--text">
+    <v-toolbar-title>系统客服</v-toolbar-title>
+</v-toolbar>
+<v-content>
+    <chat-window ref="chatWindow" @received="receivedMessage"></chat-window>
+</v-content>
+<v-footer style="padding-bottom: 30px;">
+    <v-textarea box auto-grow rows="2" class="pl-2 white" @keyup.enter="sendMessage" v-model="message"></v-textarea>
+    <v-btn @click="sendMessage">Send</v-btn>
+</v-footer>
 {% endblock %}
