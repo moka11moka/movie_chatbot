@@ -45,7 +45,7 @@ export default {
         return {
             messages: [
                 {
-                    content: "Hi, Owen, 你好, 小湘在此等主人很久了。您需要我提供什么样的服务的呢？",
+                    content: "Hi, Owen, What can I do for you？",
                     is_system: true
                 }
             ]
