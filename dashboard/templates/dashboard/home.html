@@ -9,10 +9,6 @@
     <v-toolbar-title>Film Assistant</v-toolbar-title>
 </v-toolbar>
 <v-content>
-    <chat-window ref="chatWindow" @received="receivedMessage"></chat-window>
+    <chat-window></chat-window>
 </v-content>
-<v-footer style="padding-bottom: 30px;">
-    <v-textarea box auto-grow rows="3" class="pl-2 white" @keyup.enter="sendMessage" v-model="message"></v-textarea>
-    <v-btn @click="sendMessage">Send</v-btn>
-</v-footer>
 {% endblock %}
