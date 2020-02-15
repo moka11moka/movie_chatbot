@@ -1,6 +1,5 @@
 from toolbox.api.forms.forms import forms, BaseCreateAPIForm
-from api.service.dictionaries import ServiceDictionary
-from api.service.conversation.demo import serviceChatBot
+from api.service.conversation.demo import ServiceChatBot
 
 
 class ServiceForm(BaseCreateAPIForm):
@@ -12,4 +11,4 @@ class ServiceForm(BaseCreateAPIForm):
         self.content = self.cleaned_data.get("content", None)
 
     def save(self):
-        return dict(content=ServiceDictionary.get_item(self.content))
+        return dict(content=ServiceChatBot.get_item(self.content))

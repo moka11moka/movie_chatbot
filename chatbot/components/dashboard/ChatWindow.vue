@@ -27,27 +27,52 @@
                     </template>
                 </v-list>
                 <v-toolbar color="light-grey" class="pa-0 pt-1">
-                    <v-textarea flat solo clearable auto-grow rows="1" placeholder="Enter message here..." class="ma-0 pa-0 textarea" @keydown="send" v-model="content">
+                    <v-textarea flat solo clearable auto-grow rows="1" placeholder="Enter message here..." class="ma-0 pa-0 textarea" @keydown="send" v-model="content" v-if="!isSpeech">
+                        <template v-slot:prepend>
+                            <v-icon color="primary" @click="switchMode">mic</v-icon>
+                        </template>
                         <template v-slot:append-outer>
                             <v-icon color="primary" @click="send">send</v-icon>
                         </template>
                     </v-textarea>
+                    <template v-if="isSpeech">
+                        <v-btn icon @click="switchMode">
+                            <v-icon color="primary">keyboard</v-icon>
+                        </v-btn>
+                        <speech-text @speechcompatibility="canSpeech" @speechend="speechEnd" v-if="isSpeech"></speech-text>
+                    </template>
                 </v-toolbar>
             </v-flex>
         </v-layout>
+        <v-dialog v-model="dialog" persistent max-width="290">
+            <v-card>
+                <v-card-title class="headline pb-2">Oops!</v-card-title>
+                <v-card-text class="pt-2" v-text="speechError"></v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary" text @click="dialog = false">OK</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </v-container>
 </template>
 
 
 <script>
 
+import SpeechText from './SpeechText.vue';
+
 export default {
     name: "ChatWindow",
-    data () {
+    components: {
+        speechText: SpeechText
+    },
+    data(){
         return {
             content: "",
-            container: null,
-            elem: null,
+            speechError: "",
+            isSpeech: false,
+            dialog: false,
             messages: [
                 {
                     content: "Hi, Owen, What can I do for you？",
@@ -60,15 +85,18 @@ export default {
         send: function(e){
             if(e.keyCode === 13 && !e.shiftKey && this.content){
                 e.preventDefault();
-                this.$http.post("/api/service/", {
-                    content: this.content
-                }).then((response) => {
-                    this.messages.push({"content": this.content, "is_system": false});
-                    this.messages.push(response.data.data.object);
-                    this.content = "";
-                    this.updateListScrollPosition();
-                });
+                this.post(this.content);
             }
+        },
+        post: function(){
+            this.$http.post("/api/service/", {
+                content: this.content
+            }).then((response) => {
+                this.messages.push({"content": this.content, "is_system": false});
+                this.messages.push(response.data.data.object);
+                this.content = "";
+                this.updateListScrollPosition();
+            });
         },
         style: function(){
             return {
@@ -81,6 +109,19 @@ export default {
                 var list = document.getElementById("list");
                 list.scrollTop = list.scrollHeight;
             }, 200);
+        },
+        switchMode: function(){
+            this.isSpeech = !this.isSpeech;
+        },
+        canSpeech: function(obj){
+            this.dialog = true;
+            this.speechError = obj.error;
+        },
+        speechEnd: function(obj){
+            if(obj.transcript){
+                this.content = obj.transcript;
+                this.post();
+            }
         }
     }
 }
@@ -95,6 +136,10 @@ export default {
 
 .textarea .v-input__slot {
     margin-bottom: 0px !important;
+}
+
+.v-toolbar__content {
+    padding: 0 16px !important;
 }
 
 </style>

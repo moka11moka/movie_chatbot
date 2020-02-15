@@ -2,7 +2,8 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
 
-class serviceChatBot:
+
+class ServiceChatBot:
 
     NOT_FOUND = 'Sorry, I do not understand.'
 
@@ -23,6 +24,6 @@ class serviceChatBot:
         # trainer = ListTrainer(chatbot)
         # trainer.train(conversation)
         response = chatbot.get_response(key)
-        return dict(response)
+        return str(response)
 
 
