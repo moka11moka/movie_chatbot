@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         send: function(e){
-            if(e.keyCode === 13 && !e.shiftKey){
+            if(e.keyCode === 13 && !e.shiftKey && this.content){
                 e.preventDefault();
                 this.$http.post("/api/service/", {
                     content: this.content
