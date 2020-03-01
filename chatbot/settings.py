@@ -8,7 +8,7 @@ SECRET_KEY = '0i+ei0ahnte=1$w=#q#&1auj@r(h$0&qay@xf(3d)v-du6fz8r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["74c9b416.ngrok.io", "500f2cb7.ngrok.io","localhost", "127.0.0.1"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',

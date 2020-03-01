@@ -9,7 +9,7 @@ class ServiceChatBot:
 
     @classmethod
     def get_item(cls, key):
-        chatbot = ChatBot('ran')
+        chatbot = ChatBot('Leo')
 
         conversation = [
             "Hello",
