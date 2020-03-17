@@ -196,6 +196,10 @@
     {
       "intent": "getRecom",
       "slot_filler_name": "slot_filler_2"
+    },
+    {
+      "intent": "getSummary",
+      "slot_filler_name": "slot_filler_3"
     }
   ]
 }

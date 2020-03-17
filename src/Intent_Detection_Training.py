@@ -55,9 +55,10 @@ nlp = en_core_web_sm.load()
 from snips_nlu import SnipsNLUEngine
 import pickle
 
+path = '/Users/yanni/PycharmProjects/chatbot/src/'
 # train Intent Detection Model
     
-df = pd.read_excel('/Users/yanni/downloads/Movie/Training Phrases.xlsx') 
+df = pd.read_excel(path + 'Training Phrases.xlsx') 
 df = df.dropna()
 X = df['Phrase']
 y = df['Label']
@@ -68,19 +69,19 @@ Y_train = y
 bigram_vectorizer = TfidfVectorizer(ngram_range=(1, 2),token_pattern=r'\b\w+\b', min_df=1)
 train_bigram_vectors = bigram_vectorizer.fit_transform(X_train)
 
-bigram_vectorizer_filename = '/Users/yanni/downloads/Movie/Intent_Detection_bigram_vectorizer.sav'
+bigram_vectorizer_filename = path + 'Intent_Detection_bigram_vectorizer.sav'
 pickle.dump(bigram_vectorizer, open(bigram_vectorizer_filename, 'wb'))
 
 ch21 = SelectKBest(chi2, k='all')
 train_bigram_Kbest = ch21.fit_transform(train_bigram_vectors, Y_train)
 
-ch21_filename = '/Users/yanni/downloads/Movie/Intent_Detection_ch21.sav'
+ch21_filename = path + 'Intent_Detection_ch21.sav'
 pickle.dump(ch21, open(ch21_filename, 'wb'))
 
 
 model_svm = SVC(C=5000.0, gamma="auto", kernel='rbf')
 clr_svm = model_svm.fit(train_bigram_Kbest, Y_train)
 
-crlsvm_filename = '/Users/yanni/downloads/Movie/Intent_Detection_Model.sav'
+crlsvm_filename = path + 'Intent_Detection_Model.sav'
 pickle.dump(clr_svm, open(crlsvm_filename, 'wb'))
 

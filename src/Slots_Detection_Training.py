@@ -56,18 +56,18 @@ nlp = en_core_web_sm.load()
 from snips_nlu import SnipsNLUEngine
 import pickle
 
-
+path = '/Users/yanni/PycharmProjects/chatbot/src/'
 ### train Slots Detection Model
 
-#!snips-nlu generate-dataset en /Users/yanni/downloads/Movie_intent.yaml /Users/yanni/downloads/Movie_entity.yaml  > /Users/yanni/downloads/Movie_dataset.json
-with io.open("/Users/yanni/downloads/Movie/Movie_dataset.json") as f:
+#!snips-nlu generate-dataset en /Users/yanni/PycharmProjects/chatbot/src/Movie_intent.yaml /Users/yanni/PycharmProjects/chatbot/src/Movie_entity.yaml  > /Users/yanni/PycharmProjects/chatbot/src/Movie_dataset.json
+with io.open(path + 'Movie_dataset.json') as f:
     sample_dataset = json.load(f)
     
 nlu_engine = SnipsNLUEngine()
 
 nlu_engine.fit(sample_dataset)
 
-nlu_engine.persist("/Users/yanni/downloads/Movie/Slots_Detection")
+nlu_engine.persist(path + 'Slots_Detection')
 #jdata = []
 #
 #for train_phrase in X:

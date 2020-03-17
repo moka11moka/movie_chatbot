@@ -200,6 +200,9 @@
       "actor": {
         "automatically_extensible": true
       },
+      "aspect": {
+        "automatically_extensible": true
+      },
       "countries": {
         "automatically_extensible": true
       },
@@ -234,6 +237,7 @@
     "language_code": "en",
     "slot_name_mappings": {
       "getAspect": {
+        "aspect": "aspect",
         "movieName": "movieName"
       },
       "getQuery": {
@@ -250,6 +254,9 @@
       "getRecom": {
         "keyword": "keyword",
         "time": "time"
+      },
+      "getSummary": {
+        "movieName": "movieName"
       }
     }
   },

@@ -5,44 +5,48 @@
       "entity_parser": "parser_1"
     },
     {
-      "entity_identifier": "countries",
+      "entity_identifier": "aspect",
       "entity_parser": "parser_2"
     },
     {
-      "entity_identifier": "director",
+      "entity_identifier": "countries",
       "entity_parser": "parser_3"
     },
     {
-      "entity_identifier": "genre",
+      "entity_identifier": "director",
       "entity_parser": "parser_4"
     },
     {
-      "entity_identifier": "imdb_url",
+      "entity_identifier": "genre",
       "entity_parser": "parser_5"
     },
     {
-      "entity_identifier": "keyword",
+      "entity_identifier": "imdb_url",
       "entity_parser": "parser_6"
     },
     {
-      "entity_identifier": "languages",
+      "entity_identifier": "keyword",
       "entity_parser": "parser_7"
     },
     {
-      "entity_identifier": "movieName",
+      "entity_identifier": "languages",
       "entity_parser": "parser_8"
     },
     {
-      "entity_identifier": "rating",
+      "entity_identifier": "movieName",
       "entity_parser": "parser_9"
     },
     {
-      "entity_identifier": "story",
+      "entity_identifier": "rating",
       "entity_parser": "parser_10"
     },
     {
-      "entity_identifier": "time",
+      "entity_identifier": "story",
       "entity_parser": "parser_11"
+    },
+    {
+      "entity_identifier": "time",
+      "entity_parser": "parser_12"
     }
   ]
 }
