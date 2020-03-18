@@ -23,7 +23,6 @@ cs1 = conn.cursor()
 def main(req):
     
     predicted_Intent, predicted_Slots = Intent_Slots_Detection(req)
-    
     movieName = ''
     
     if predicted_Intent[0] == 'recom_keyword':
@@ -45,12 +44,16 @@ def main(req):
             search_command = "SELECT " + predicted_Intent[0] + " FROM " + table_name + " where title = '" + movieName + "'"
             cs1.execute(search_command)
             myresult = cs1.fetchall()
-            result = myresult[0][0]
+            print(myresult)
+            if myresult == ():
+                result = "Sorry, I don't have the information about this movie"
+            else:
+                result = myresult[0][0]
     else:
         result = "Sorry, I don't understand"
     return result
 
-req = 'who is the director of Radioactive?'
+req = 'what is the genre of Radioacti?'
 
 result = main(req)
 print(result)
