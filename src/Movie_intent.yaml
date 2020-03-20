@@ -1,0 +1,157 @@
+# getQuery Intent
+---
+type: intent
+name: getQuery
+slots:
+  - name: movieName
+    entity: movieName
+  - name: director
+    entity: director
+  - name: actor
+    entity: actor
+  - name: story
+    entity: story
+  - name: rating
+    entity: rating
+  - name: languages
+    entity: languages
+  - name: countries
+    entity: countries
+  - name: genre
+    entity: genre
+  - name: imdb_url
+    entity: imdb_url
+
+utterances:
+
+  - who is the [director] of [movieName].
+  - who [director] the [movieName].
+  - tell me about the [director] of [movieName].
+  - who is the [director] of [movieName].
+  - who [director] the [movieName].
+  - tell me about the [director] of [movieName].
+  - who is the [director] of [movieName].
+  - who [director] the [movieName].
+  - tell me about the [director] of [movieName].
+  - what is [actor] of [movieName].
+  - what is [actor] of [movieName].
+  - tell me about the [actor] of [movieName].
+  - the [actor] of [movieName].
+  - who are the main [actor] of [movieName].
+  - show methe [actor] of [movieName].
+  - who are lead [actor] of [movieName].
+  - show me the [actor] of [movieName].
+  - tell me about [actor] of [movieName].
+  - what is [movieName] [story].
+  - the [story] of [movieName].
+  - tell me the [story] of [movieName].
+  - what is the [story] of [movieName].
+  - tell me about the [story] of [movieName].
+  - what is basic outline of [story] of [movieName].
+  - show me the [story] of [movieName].
+  - abstract [story] of [movieName].
+  - brief [story] of [movieName].
+  - summarize the [story] of [movieName].
+  - the [rating] of [movieName].
+  - tell me about the [rating] of [movieName].
+  - what is the [rating] of [movieName].
+  - the [rating] of [movieName].
+  - tell me the [rating] of [movieName].
+  - what is the [rating] of [movieName].
+  - the [rating] of [movieName].
+  - tell me the [rating] of [movieName] from reviews.
+  - what is the [rating] of [movieName] from users.
+  - what is the [languages] of [movieName].
+  - what are the [languages] of [movieName].
+  - what [languages] are supported by [movieName].
+  - the [languages] of [movieName].
+  - tell me the [languages] of [movieName].
+  - which [countries] are [movieName] produced by.
+  - tell me the [countries] that produce [movieName].
+  - which [countries] is [movieName] produced by.
+  - tell me the [countries] that produced [movieName].
+  - what is the [genre] of [movieName].
+  - what are the [genre] of [movieName].
+  - the [genre] of [movieName].
+  - which [genre][movieName] belongs to.
+  - which [genre] [movieName] belongs to.
+  - show me the [imdb_url] of [movieName].
+  - the [imdb_url] of [movieName].
+
+
+# getRecom Intent
+---
+type: intent
+name: getRecom
+slots:
+  - name: keyword
+    entity: keyword
+  - name: time
+    entity: time
+
+utterances:
+
+  - Recommend some [keyword] to watch.
+  - I want to watch a [keyword].
+  - Could you recommend some [keyword].
+  - Could you recommend some [keyword] to me.
+  - I want to watch a [keyword].
+  - I would like to watch a [keyword].
+  - List some popular [keyword].
+  - Suggest some [keyword].
+  - What to watch [time](next week).
+  - what's on [time].
+  - What are the upcoming movies [time].
+  - Recommend some upcoming movies.
+  - Will any comedies be on [time].
+  - What movie will be released [time].
+  - Will there be any upcoming movies [time].
+  - Recommend me some upcoming movies.
+  - What movie will be on [time].
+  - What movie will be in the theatre [time].
+  - Will any comedies be in the theatre [time].
+  - Will any comedies be released [time].
+  - Tell me the upcoming movies [time].
+
+# getAspect Intent
+---
+type: intent
+name: getAspect
+slots:
+  - name: movieName
+    entity: movieName
+  - name: aspect
+    entity: aspect
+
+
+utterances:
+  - How is the [aspect] of [movieName].
+  - What do people say about the [aspect] of [movieName].
+  - How do people think of [aspect] of [movieName].
+  - Is the [aspect] of [movieName] good or bad.
+  - Is the [aspect] of [movieName] good.
+  - Is the [aspect] of [movieName] bad.
+  - I want to know about the performance of [aspect] in [movieName].
+  - Do people like the performance of [aspect] in [movieName].
+  - Should I watch [movieName] for the [aspect].
+  - Is the [aspect] good in [movieName].
+
+# getSummary Intent
+---
+type: intent
+name: getSummary
+slots:
+  - name: movieName
+    entity: movieName
+
+utterances:
+  - What is other audiences think of [movieName].
+  - How is the overall reviews of [movieName].
+  - What is the attitude of people for [movieName].
+  - How do the other people think of [movieName].
+  - Can I know what is the reviews of other people for [movieName].
+  - Can I know what is other people think of [movieName].
+  - Can you tell me what is the general reviews for [movieName].
+  - Can I have an overall reviews in [movieName].
+  - I want to know about the overall reviews in [movieName].
+  - How do you think of [movieName].
