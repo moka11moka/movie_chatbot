@@ -1,6 +1,11 @@
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
-from chatterbot.trainers import ListTrainer
+# from chatterbot import ChatBot
+# from chatterbot.trainers import ChatterBotCorpusTrainer
+# from chatterbot.trainers import ListTrainer
+import src.Movie_main
+from MYSQL import MYSQL
+
+
+mysql = MYSQL()
 
 
 class ServiceChatBot:
@@ -9,7 +14,7 @@ class ServiceChatBot:
 
     @classmethod
     def get_item(cls, key):
-        chatbot = ChatBot('Leo')
+        # chatbot = src.Movie_main.main(key)
 
         conversation = [
             "Hello",
@@ -23,7 +28,7 @@ class ServiceChatBot:
 
         # trainer = ListTrainer(chatbot)
         # trainer.train(conversation)
-        response = chatbot.get_response(key)
+        response = src.Movie_main.main(key,mysql)
         return str(response)
 
 
