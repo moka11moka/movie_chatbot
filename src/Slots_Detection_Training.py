@@ -67,7 +67,7 @@ nlu_engine = SnipsNLUEngine()
 
 nlu_engine.fit(sample_dataset)
 
-nlu_engine.persist(path + 'Slots_Detection')
+nlu_engine.persist(path + 'SlotsDetection')
 #jdata = []
 #
 #for train_phrase in X:

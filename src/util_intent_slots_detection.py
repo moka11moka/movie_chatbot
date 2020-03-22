@@ -10,23 +10,39 @@ from snips_nlu import SnipsNLUEngine
 import pickle
 
 
-path = '/Users/yanni/PycharmProjects/chatbot/src/'
+path = 'C:\\Users\\guoxi\\Desktop\\movie_chatbot\\src\\'
 # load Intent Detection Model
-
-bigram_vectorizer_filename = path + 'Intent_Detection_bigram_vectorizer.sav'
-ch21_filename = path + 'Intent_Detection_ch21.sav'
-crlsvm_filename = path + 'Intent_Detection_Model.sav'
+#print(path / "nlu_engine.json")
+bigram_vectorizer_filename = 'C:/Users/guoxi/Desktop/movie_chatbot/src/Intent_Detection_bigram_vectorizer.sav'
+ch21_filename = 'C:/Users/guoxi/Desktop/movie_chatbot/src/Intent_Detection_ch21.sav'
+crlsvm_filename = 'C:/Users/guoxi/Desktop/movie_chatbot/src/Intent_Detection_Model.sav'
 
 loaded_bigram_vectorizer = pickle.load(open(bigram_vectorizer_filename, 'rb'))
 loaded_ch21 = pickle.load(open(ch21_filename, 'rb'))
 loaded_crlsvm = pickle.load(open(crlsvm_filename, 'rb'))
 
 ### load Slots Detection Model
+# loaded_NLUEngine = SnipsNLUEngine.from_path('C:/Users/guoxi/Desktop/movie_chatbot/src/SlotsDetection')
 
-loaded_NLUEngine = SnipsNLUEngine.from_path(path + 'Slots_Detection')
+import io
+import json
 
+import en_core_web_sm
 
-###
+nlp = en_core_web_sm.load()
+
+from snips_nlu import SnipsNLUEngine
+
+# path = 'C:/Users/guoxi/Desktop/movie_chatbot/src/'
+
+### train Slots Detection Model
+
+with io.open(path + 'Movie_dataset.json') as f:
+    sample_dataset = json.load(f)
+
+loaded_NLUEngine = SnipsNLUEngine()
+
+loaded_NLUEngine.fit(sample_dataset)
 
 def Intent_Slots_Detection(test_phrase):
     if test_phrase[-1] == '?':

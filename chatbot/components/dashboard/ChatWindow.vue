@@ -10,14 +10,14 @@
                         </v-list-tile-avatar>
                         <v-list-tile-content>
                             <v-list-tile-title>
-                                <v-chip small class="pa-2" v-text="message.content"></v-chip>
+                                <v-chip small color="blue" class="pa-2" v-text="message.content" ></v-chip>
                             </v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                     <v-list-tile avatar v-else="!message.is_system">
                         <v-list-tile-content>
                             <v-list-tile-title class="text-xs-right text-sm-right text-md-right text-lg-right text-xl-right">
-                                <v-chip small class="pa-2 light-green accent-4" v-text="message.content"></v-chip>
+                                <v-chip small color="primary" class="pa-2 light-green accent-4" v-text="message.content"></v-chip>
                             </v-list-tile-title>
                         </v-list-tile-content>
                         <v-list-tile-avatar>
@@ -140,6 +140,10 @@ export default {
 
 .v-toolbar__content {
     padding: 0 16px !important;
+}
+.pa-2{
+    white-space:normal; 
+    width:200px;
 }
 
 </style>

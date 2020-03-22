@@ -1,8 +1,5 @@
 from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
-from chatterbot.trainers import ListTrainer
-
-
+from src.Movie_main import conversation
 class ServiceChatBot:
 
     NOT_FOUND = 'Sorry, I do not understand.'
@@ -11,19 +8,8 @@ class ServiceChatBot:
     def get_item(cls, key):
         chatbot = ChatBot('Leo')
 
-        conversation = [
-            "Hello",
-            "Hi there!",
-            "How are you doing?",
-            "I'm doing great.",
-            "That is good to hear",
-            "Thank you.",
-            "You're welcome."
-        ]
-
-        # trainer = ListTrainer(chatbot)
-        # trainer.train(conversation)
-        response = chatbot.get_response(key)
+        #response = chatbot.get_response(key)
+        response = conversation(key)
         return str(response)
 
 

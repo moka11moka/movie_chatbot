@@ -6,26 +6,20 @@ Created on Mon Mar  9 12:16:32 2020
 @author: yanni
 """
 
-from util_intent_slots_detection import *
-
-
+from src.util_intent_slots_detection import Intent_Slots_Detection
 from pymysql import *
 
-database_name = 'Movie'
+database_name = 'movie_all'
 table_name = 'movie_all'
 user_name = 'root'
-password_info = 'sabrina930101'
+password_info = '794463019'
 
-conn = connect(host='localhost', port=3306, database= database_name, user= user_name, password= password_info, charset='utf8')
+conn = connect(host='localhost', port=3306, database=database_name, user= user_name, password= password_info, charset='utf8')
 cs1 = conn.cursor()
 
-
-def main(req):
-    
+def conversation(req):
     predicted_Intent, predicted_Slots = Intent_Slots_Detection(req)
-    
     movieName = ''
-    
     if predicted_Intent[0] == 'recom_keyword':
         print('Keyword Recommendation: ', predicted_Slots)
     elif predicted_Intent[0] == 'recom_upcoming':
@@ -50,7 +44,9 @@ def main(req):
         result = "Sorry, I don't understand"
     return result
 
-req = 'who is the director of Radioactive?'
+req = 'who is the directors of Burden?'
 
-result = main(req)
-print(result)
+result = conversation(req)
+# cs1.close()
+# conn.close()
+
