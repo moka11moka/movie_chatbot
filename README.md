@@ -4,7 +4,7 @@ this is a easy chatbot project
 
 1.Clone this project to local
 
-  git clone https://github.com/moka11moka/chatbot.git
+  git clone https://github.com/moka11moka/moviie_chatbot.git
 
 2.Going to your project directory and create a virtual environment python version >=3.6+
 
