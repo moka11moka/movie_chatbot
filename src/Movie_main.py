@@ -95,7 +95,7 @@ def main(req,mysql):
     print(result)
     return result
 
-req = 'What do people say about the cast of Burden?'
+req = 'What do people say about the actor of Burden?'
 
 mysql = MYSQL()
 result = main(req, mysql)
