@@ -10,7 +10,8 @@ from snips_nlu import SnipsNLUEngine
 import pickle
 
 
-path = '/Users/lijingmeng/Desktop/PLP Project/movie_chatbot/src/'
+#path = '/Users/lijingmeng/Desktop/PLP Project/movie_chatbot/src/'
+path = '/Users/yanni/PycharmProjects/chatbot/src/'
 # load Intent Detection Model
 
 bigram_vectorizer_filename = path + 'Intent_Detection_bigram_vectorizer.sav'
@@ -38,6 +39,7 @@ def Intent_Slots_Detection(test_phrase):
     predicted_Intent = loaded_crlsvm.predict(test_bigram_Kbest)
 
     test_data = loaded_NLUEngine.parse(test_phrase)
+    print(test_data)
     predicted_Slots = []
     for slot in test_data['slots']:
         predicted_Slots.append([slot['slotName'], slot['value']['value']])

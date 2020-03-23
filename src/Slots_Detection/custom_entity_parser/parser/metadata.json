@@ -43,10 +43,6 @@
     {
       "entity_identifier": "story",
       "entity_parser": "parser_11"
-    },
-    {
-      "entity_identifier": "time",
-      "entity_parser": "parser_12"
     }
   ]
 }

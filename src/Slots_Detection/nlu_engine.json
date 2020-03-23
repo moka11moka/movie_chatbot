@@ -229,9 +229,6 @@
       },
       "story": {
         "automatically_extensible": true
-      },
-      "time": {
-        "automatically_extensible": true
       }
     },
     "language_code": "en",
@@ -252,8 +249,7 @@
         "story": "story"
       },
       "getRecom": {
-        "keyword": "keyword",
-        "time": "time"
+        "keyword": "keyword"
       },
       "getSummary": {
         "movieName": "movieName"

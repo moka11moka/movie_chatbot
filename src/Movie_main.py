@@ -8,7 +8,7 @@ Created on Mon Mar  9 12:16:32 2020
 
 from src.util_intent_slots_detection import *
 from src.Aspect_Mining.Aspect_Sentiment import *
-
+from MYSQL import *
 
 # database_name = 'MovieAssistant'
 # table_name = 'movie_all_new'
@@ -40,14 +40,24 @@ def main(req,mysql):
     elif predicted_Intent[0] == 'recom_upcoming':
         print('Upcoming Recommendation: ')
     elif predicted_Intent[0] == 'aspect_analysis':
-        movieName = predicted_Slots[1][1]
-        aspect = predicted_Slots[0][1]
-        search_command = "SELECT * FROM aspect_sentiment" + " where title = '" + movieName + "'"
-        myresult = mysql.ExecQuery(search_command)
-        if myresult:
-            result = aspect_score(aspect,myresult)
+        if predicted_Slots[0][0] == 'aspect':
+            movieName = predicted_Slots[1][1]
+            aspect = predicted_Slots[0][1]
+        elif predicted_Slots[1][0] == 'aspect':
+            movieName = predicted_Slots[0][1]
+            aspect = predicted_Slots[1][1]
+        
+        if aspect in ['acting', 'direction', 'screenplay', 'sound', 'story', 'visual']:
+            print('OK')
+            search_command = "SELECT * FROM aspect_sentiment" + " where title = '" + movieName + "'"
+            myresult = mysql.ExecQuery(search_command)
+            if myresult:
+                result = aspect_score(aspect,myresult)
+            else:
+                result = "Sorry, I don't have the information about this movie"
         else:
             result = "Sorry, I don't have the information about this movie"
+        
         print('Aspect Analysis:', predicted_Slots)
     elif predicted_Intent[0] == 'reviews_summary':
         print('Summary:', predicted_Slots)
@@ -60,9 +70,6 @@ def main(req,mysql):
                 if slot[0] == 'movieName':
                     movieName = slot[1]
                     print(movieName)
-            # search_command = "SELECT " + predicted_Intent[0] + " FROM " + table_name + " where title = '" + movieName + "'"
-            # cs1.execute(search_command)
-            # myresult = cs1.fetchall()
             search_command = "SELECT " + predicted_Intent[0] + " FROM movie_all_new" + " where title = '" + movieName + "'"
             myresult = mysql.ExecQuery(search_command)
             if last_intent and myresult == ():
@@ -71,9 +78,6 @@ def main(req,mysql):
                 result = "Sorry, I don't have the information about this movie"
             
             elif myresult == ():
-                # search_command = "SELECT title FROM " + table_name + " where title like '" + '%' + movieName.replace(" ", "% %") + '%' + "'" + " order by users_rating desc"
-                # cs1.execute(search_command)
-                # myresult = cs1.fetchall()
                 search_command = "SELECT title FROM movie_all_new" + " where title like '" + '%' + movieName.replace(" ", "% %") + '%' + "'" + " order by users_rating desc"
                 myresult = mysql.ExecQuery(search_command)
                 if myresult == ():
@@ -91,7 +95,8 @@ def main(req,mysql):
     print(result)
     return result
 
-# req = 'What do people say about the actors of Burden?'
-#
-# result = main(req)
-# print(result)
+req = 'What do people say about the cast of Burden?'
+
+mysql = MYSQL()
+result = main(req, mysql)
+print(result)
