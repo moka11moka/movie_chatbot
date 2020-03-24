@@ -17,6 +17,7 @@ suggest_lst = []
 
 def main(req,mysql):
     global last_intent, suggest_lst, result
+
     if last_intent:
         predicted_Intent = last_intent
         print('last_intent:',last_intent)
