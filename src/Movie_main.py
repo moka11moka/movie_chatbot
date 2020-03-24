@@ -28,6 +28,7 @@ def main(req,mysql):
         movieName = ''
     
     if predicted_Intent[0] == 'recom_keyword':
+        # print(predicted_Slots)
         print('Keyword Recommendation: ', predicted_Slots[0][1])
         index_str = Genre_Recomm(True,predicted_Slots[0][1])
         if index_str == "":
@@ -35,30 +36,38 @@ def main(req,mysql):
         if index_str == "":
             result = "Sorry, we don't have category " + predicted_Slots[0][1]
         else:
-            cate_recomm = "SELECT title FROM movie_simple " + " where idx in (" + index_str[:-1] + ")"
+            cate_recomm = "SELECT title,rating FROM movie_simple " + " where idx in (" + index_str[:-1] + ")"
             myresult = mysql.ExecQuery(cate_recomm)
             title_str = ""
-            print(myresult)
-            for title in myresult:
-                title_str += title[0] + ","
-            result = "Here are the recommendations: "+ title_str[:-1]
+            tips = ""
+            for movie in myresult:
+                title_str += movie[0] + ","
+                if movie[1]!="":
+                    tips += movie[0] + " is " + movie[1] + " level movie. "
+            result = "Here are the recommendations: "+ title_str[:-1] + ".\nTips:" + tips
         return result
 
     elif predicted_Intent[0] == 'recom_upcoming':
         print('Upcoming Recommendation: ')
-        index_str = Genre_Recomm(False,predicted_Slots[0][1])
-        if index_str == "":
-            index_str = Keyword_Recomm(False,predicted_Slots[0][1])
-        if index_str == "":
-            result = "Sorry, we dont' have category " + predicted_Slots[0][1]
+        if predicted_Slots == []:
+            index_str = "30,45,51," # index of top3
         else:
-            cate_recomm = "SELECT title FROM upcoming " + " where idx in (" + index_str[:-1] + ")"
+            slot = predicted_Slots[0][1]
+            index_str = Genre_Recomm(False,slot)
+        if index_str == "":
+            index_str = Keyword_Recomm(False,slot)
+        if index_str == "":
+            result = "Sorry, we dont' have category " + slot
+        else:
+            cate_recomm = "SELECT title,rating FROM upcoming_simple " + " where idx in (" + index_str[:-1] + ")"
             myresult = mysql.ExecQuery(cate_recomm)
             title_str = ""
-            print(myresult)
-            for title in myresult:
-                title_str += title[0] + ","
-            result = "Here are the recommendations: "+ title_str[:-1]
+            tips = ""
+            for movie in myresult:
+                title_str += movie[0] + ","
+                if movie[1] != "":
+                    tips += movie[0] + " is " + movie[1] + " level movie. "
+            result = "Here are the recommendations: " + title_str[:-1] + ".\nTips:" + tips
         return result
     elif predicted_Intent[0] == 'aspect_analysis':
         movieName = predicted_Slots[1][1]
@@ -111,7 +120,7 @@ def main(req,mysql):
         result = "Sorry, I don't understand"
     return result
 
-req = 'Recommend some happy to watch'
+req = 'I want to watch a comedy'
 mysql = MYSQL()
 result = main(req, mysql)
 print(result)
