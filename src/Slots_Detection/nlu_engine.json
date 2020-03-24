@@ -218,6 +218,9 @@
       "keyword": {
         "automatically_extensible": true
       },
+      "keyword_upcoming": {
+        "automatically_extensible": true
+      },
       "languages": {
         "automatically_extensible": true
       },
@@ -249,7 +252,11 @@
         "story": "story"
       },
       "getRecom": {
-        "keyword": "keyword"
+        "keyword": "keyword",
+        "keyword_upcoming": "keyword_upcoming"
+      },
+      "getSimilarity": {
+        "movieName": "movieName"
       },
       "getSummary": {
         "movieName": "movieName"

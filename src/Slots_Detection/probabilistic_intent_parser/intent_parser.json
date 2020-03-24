@@ -198,8 +198,12 @@
       "slot_filler_name": "slot_filler_2"
     },
     {
-      "intent": "getSummary",
+      "intent": "getSimilarity",
       "slot_filler_name": "slot_filler_3"
+    },
+    {
+      "intent": "getSummary",
+      "slot_filler_name": "slot_filler_4"
     }
   ]
 }

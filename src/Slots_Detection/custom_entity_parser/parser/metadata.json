@@ -29,20 +29,24 @@
       "entity_parser": "parser_7"
     },
     {
-      "entity_identifier": "languages",
+      "entity_identifier": "keyword_upcoming",
       "entity_parser": "parser_8"
     },
     {
-      "entity_identifier": "movieName",
+      "entity_identifier": "languages",
       "entity_parser": "parser_9"
     },
     {
-      "entity_identifier": "rating",
+      "entity_identifier": "movieName",
       "entity_parser": "parser_10"
     },
     {
-      "entity_identifier": "story",
+      "entity_identifier": "rating",
       "entity_parser": "parser_11"
+    },
+    {
+      "entity_identifier": "story",
+      "entity_parser": "parser_12"
     }
   ]
 }

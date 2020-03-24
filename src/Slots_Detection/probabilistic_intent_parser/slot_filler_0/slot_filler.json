@@ -117,8 +117,8 @@
       {
         "args": {
           "entities": [
-            "movieName",
-            "aspect"
+            "aspect",
+            "movieName"
           ],
           "entity_filter": {
             "automatically_extensible": true
