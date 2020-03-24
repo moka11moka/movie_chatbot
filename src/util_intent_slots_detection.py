@@ -10,7 +10,7 @@ from snips_nlu import SnipsNLUEngine
 import pickle
 
 
-path = '/Users/lijingmeng/Desktop/PLP Project/movie_chatbot/src/'
+path = 'C:/Users/guoxi/Desktop/movie_chatbot/src/'
 # load Intent Detection Model
 
 bigram_vectorizer_filename = path + 'Intent_Detection_bigram_vectorizer.sav'
@@ -22,11 +22,7 @@ loaded_ch21 = pickle.load(open(ch21_filename, 'rb'))
 loaded_crlsvm = pickle.load(open(crlsvm_filename, 'rb'))
 
 ### load Slots Detection Model
-
 loaded_NLUEngine = SnipsNLUEngine.from_path(path + 'Slots_Detection')
-
-
-###
 
 def Intent_Slots_Detection(test_phrase):
     if test_phrase[-1] == '?':

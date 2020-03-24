@@ -1,10 +1,7 @@
 from pymysql import *
-
-
-#
-database = 'MovieAssistant'
+database = 'movie_all'
 user_name = 'root'
-password = 'PLPgroup11'
+password = '794463019'
 host = 'localhost'
 port = 3306
 
