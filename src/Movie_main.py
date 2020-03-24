@@ -61,6 +61,8 @@ def main(req,mysql):
         print('Aspect Analysis:', predicted_Slots)
     elif predicted_Intent[0] == 'reviews_summary':
         print('Summary:', predicted_Slots)
+    elif predicted_Intent[0] == 'recom_similarity':
+        print('Similarity Recommendation:', predicted_Slots)
     elif predicted_Intent[0]:
         print('Basic Info: ', predicted_Intent[0])
         if not predicted_Slots:

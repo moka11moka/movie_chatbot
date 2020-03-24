@@ -166,7 +166,7 @@ utterances:
 # getSimilarity Intent
 ---
 type: intent
-name: getSummary
+name: getSimilarity
 slots:
   - name: movieName
     entity: movieName
