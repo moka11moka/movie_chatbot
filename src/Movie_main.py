@@ -5,7 +5,7 @@ Created on Mon Mar  9 12:16:32 2020
 
 @author: yanni
 """
-
+from src.Keyword_Recommendation.Keyword_Recommendation import Genre_Recomm, Keyword_Recomm
 from src.util_intent_slots_detection import *
 from src.Aspect_Mining.Aspect_Sentiment import *
 from MYSQL import MYSQL
@@ -28,9 +28,38 @@ def main(req,mysql):
         movieName = ''
     
     if predicted_Intent[0] == 'recom_keyword':
-        print('Keyword Recommendation: ', predicted_Slots)
+        print('Keyword Recommendation: ', predicted_Slots[0][1])
+        index_str = Genre_Recomm(True,predicted_Slots[0][1])
+        if index_str == "":
+            index_str = Keyword_Recomm(True,predicted_Slots[0][1])
+        if index_str == "":
+            result = "Sorry, we don't have category " + predicted_Slots[0][1]
+        else:
+            cate_recomm = "SELECT title FROM movie_simple " + " where idx in (" + index_str[:-1] + ")"
+            myresult = mysql.ExecQuery(cate_recomm)
+            title_str = ""
+            print(myresult)
+            for title in myresult:
+                title_str += title[0] + ","
+            result = "Here are the recommendations: "+ title_str[:-1]
+        return result
+
     elif predicted_Intent[0] == 'recom_upcoming':
         print('Upcoming Recommendation: ')
+        index_str = Genre_Recomm(False,predicted_Slots[0][1])
+        if index_str == "":
+            index_str = Keyword_Recomm(False,predicted_Slots[0][1])
+        if index_str == "":
+            result = "Sorry, we dont' have category " + predicted_Slots[0][1]
+        else:
+            cate_recomm = "SELECT title FROM upcoming " + " where idx in (" + index_str[:-1] + ")"
+            myresult = mysql.ExecQuery(cate_recomm)
+            title_str = ""
+            print(myresult)
+            for title in myresult:
+                title_str += title[0] + ","
+            result = "Here are the recommendations: "+ title_str[:-1]
+        return result
     elif predicted_Intent[0] == 'aspect_analysis':
         movieName = predicted_Slots[1][1]
         aspect = predicted_Slots[0][1]
@@ -82,7 +111,7 @@ def main(req,mysql):
         result = "Sorry, I don't understand"
     return result
 
-req = 'I want to know some movies related about Boys of Summerville'
+req = 'Recommend some happy to watch'
 mysql = MYSQL()
 result = main(req, mysql)
 print(result)
