@@ -117,7 +117,6 @@
       {
         "args": {
           "entities": [
-            "time",
             "keyword"
           ],
           "entity_filter": {
@@ -180,7 +179,6 @@
   "intent": "getRecom",
   "language_code": "en",
   "slot_name_mapping": {
-    "keyword": "keyword",
-    "time": "time"
+    "keyword": "keyword"
   }
 }

@@ -56,50 +56,21 @@ type: entity
 name: imdb_url
 values:
   - [url, link, hyperlink]
-  
-# Movie keyword Entity
----
-type: entity
-name: keyword
-values:
-  - Action
-  - Adult
-  - Adventure
-  - Animation
-  - Biography
-  - Comedy
-  - Crime
-  - Drama
-  - Family
-  - Fantasy
-  - Film-Noir
-  - Game-Show
-  - History
-  - Horror
-  - Music
-  - Musical
-  - Mystery
-  - News
-  - Reality-TV
-  - Romance
-  - Sci-Fi
-  - Sport
-  - Talk-Show
-  - Thriller
-  - War
-  - Western
+
 
 # Movie aspect Entity
 ---
 type: entity
 name: aspect
 values:
-  - [acting, actor, actors]
-  - [story, storyline]
-  - screenplay
-  - sound
-  - story
-  - visual
+
+  - [acting, actor, actors, casts, cast, improvisation, showings, showing, character, lines, capers, determination, music, cover, venture, creations, strike, involvement, sidelines, preparations, collections, project, skank, contributions, hairdressing, play, performing, renderings, seizure, choices, travails, endeavour, pleasantries, programming, rendering, covers, cooperation, preservation, interference, adherence, idleness, bridges, struggle, service, hearing, disregard, frustrations, implementation, misuse, boost, handling, processes, villain, baddie, looking, look, looks, sculpture, arts, realizations, work, makings, participation, shticks, trigger, persuasion, role, disagreement, activities, heroics, animations, positions, specialties, roles, representation, dictation, action, catcher, erotica, auditions, acts, engagement, designing, conservation, re-creation, disguise, mourning, smut, flirtations, designs, parodies, moves, attachment, actualization, ventures, expressions, solos, amusement, breakthrough, heroines, act, flirtation, baddies, concealments, design, contact, leads, indulgences, behaviors, hero, skits, actions, parts, ingenue, dispensation, vote, sideline, touching, mime, crack, speeches, panto, touches, spoils, manipulations, performance, solo, classics, overacting, interaction, observations, representations, poker, animation, rivalries, villains, extravaganza, part, performances, rehearsals, fabrication, move, speech, porn, endeavours, services, heroes, craft, behaviour, discourses, discourse, shtick, expression, interactions, capture, character, persona, creation, cracks, presentation, impersonations, characters, indulgence, personas, schtick, heros, impersonation, impression, extravaganzas, seizures, casting, dances, penetration, realization, rehearsal, shows, dressing, endeavors, heroine, recreation, dancing, manipulation, contacts, dramatics, wearing, dramatization, acting, womanhood, extravagance, taking, behavior, show, breakthroughs, endeavor, impressions, presentations]
+  - [direction, misdirection, directions, direction, filmmaker, ford, wilder, farmer, russell, fellini, producer, welles, chaplin, creators, auteur, masterminds, architect, developer, huston, filmmakers, artist, demille, warner, artists, capra, jewison, maker, hughes, farmers, producers, granger, sennett, bergman, lucas, choreographer, eisenstein, developers, hitchcock, ziegfeld, mastermind, designer, stevens, makers, designers, directors, pollack, griffith, tarantino, director, lubitsch, lee, inventor, creator, spielberg, coppola, allen, someone, truffaut, kubrick, directorship]
+  - [screenplay, wisecracks, line, agon, depiction, depictions, literatures, literature, writings, writing, quotations, quotation, section, dialogs, script, drama, titles, scenario, title, paragraphs, dramas, scenarios, editing, scripts, paragraph, versions, dialog, papers, journal, adaptations, dialogues, sections, adaptation, dialogue, autograph, plagiarism, characterisation, characterisations, characteristics, characterization, characterizations]
+  - [sound, audio, singing, duet, song, music, accompaniment, forte, height, degrees, idiom, light, level, length, pianos, coloration, powers, pace, voice, bouquets, pitch, modes, qualities, rings, compositions, lightness, tone, soprano, resonance, mode, strength, caliber, piano, swing, voices, ringing, volume, tune, sound, twang, tunes, lilt, timbre, stillness, sounds, silences, tones, resonance, bouquet, sopranos, silence, ring, composition, swings, sounding]
+  - [story, humour, words, notes, viewings, proposition, platitudes, arguments, ironies, burlesque, stuffs, hokum, view, forerunners, rudiments, witticisms, introduction, gags, prophecies, rhetoric, cliches, gag, understatement, tale, genre, caricatures, ridiculousness, documents, compendium, topic, narratives, humor, descriptions, contradictions, explanations, viewing, misinformation, connotations, messages, message, conspiracies, plight, absurdities, satire, abstract, tales, resolution, connotation, demonstration, narration, comedies, caricature, wittiness, nuances, themes, contents, prose, theme, language, gambit, drivel, views, interpretation, summaries, propaganda, indications, information, utterance, slur, tearjerker, spoof, regrets, blather, topics, artwork, folktale, description, stories, overtones, contradiction, outline, interpretations, content, spoofs, wit, lampoon, comics, story, sendup, nonsense, cartoons, explanation, fiction, cliche, word, sarcasm, artworks, genres, forerunner, denouement, opinions]
+  - [visual, graph, graphics, colors, colours, lights, light, imaging, aesthetics, screening, screenings, sets, montage, vignettes, silhouette, backdrops, vignette, backgrounds, photographs, backcloth, photo, exposure, originals, semblance, pictures, figures, spectacle, sceneries, backdrop, frame, images, spectacles, montages, frames, teaser, mosaic, beefcake, image, snapshot, artifacts, set, scenes, scene, artifact, closeups, closeup, diagrams, photos, photograph, drawings, picture, figure, pic, colour, color]
+
 
 # Movie Name Entity
 ---

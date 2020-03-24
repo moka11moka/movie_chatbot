@@ -86,12 +86,10 @@ name: getRecom
 slots:
   - name: keyword
     entity: keyword
-  - name: time
-    entity: time
 
 utterances:
 
-  - Recommend some [keyword] to watch.
+  - Recommend some [keyword](comedy) to watch.
   - I want to watch a [keyword].
   - Could you recommend some [keyword].
   - Could you recommend some [keyword] to me.
@@ -99,19 +97,28 @@ utterances:
   - I would like to watch a [keyword].
   - List some popular [keyword].
   - Suggest some [keyword].
-  - What to watch [time](next week).
-  - what's on [time].
-  - What are the upcoming movies [time].
+  - What to watch recently.
+  - What are the upcoming movies recently.
   - Recommend some upcoming movies.
-  - Will any comedies be on [time].
-  - What movie will be released [time].
-  - Will there be any upcoming movies [time].
+  - Will any [keyword] be on recently.
+  - What movies will be on recently.
+  - What movie will be released recently.
+  - Will there be any upcoming movies recently.
   - Recommend me some upcoming movies.
-  - What movie will be on [time].
-  - What movie will be in the theatre [time].
-  - Will any comedies be in the theatre [time].
-  - Will any comedies be released [time].
-  - Tell me the upcoming movies [time].
+  - Recommend me some upcoming [keyword].
+  - What movie will be on recently.
+  - What movie will be in the theatre recently.
+  - Will any [keyword] be in the theatre recently.
+  - Will any [keyword] be released recently.
+  - Tell me the upcoming movies recently.
+  - Are there any new [keyword] recently.
+  - Are there any [keyword] on show.
+  - What movie will be released.
+  - I would like to see some on show movies.
+  - I want to see some [keyword] in cinema.
+  - I would like to see some new movies.
+  - I would like to see some new [keyword].
+
 
 # getAspect Intent
 ---
@@ -155,3 +162,25 @@ utterances:
   - Can I have an overall reviews in [movieName].
   - I want to know about the overall reviews in [movieName].
   - How do you think of [movieName].
+
+# getSimilarity Intent
+---
+type: intent
+name: getSimilarity
+slots:
+  - name: movieName
+    entity: movieName
+
+utterances:
+  - I want to know some movies related about [movieName].
+  - Can you recommend me some movie related about [movieName].
+  - Can I see some other movies about [movieName].
+  - Can I watch some other movies about [movieName].
+  - I want to watch some movies related about [movieName].
+  - Can you show me other movies about [movieName].
+  - Some movies related about [movieName].
+  - Show me movies related about [movieName].
+  - Other movies like [movieName].
+  - I want to know other movies like [movieName].
+  - Show me other movies like [movieName].
+  - About other movies like [movieName].
