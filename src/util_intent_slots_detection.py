@@ -10,8 +10,8 @@ from snips_nlu import SnipsNLUEngine
 import pickle
 
 
-#path = '/Users/lijingmeng/Desktop/PLP Project/movie_chatbot/src/'
-path = '/Users/yanni/PycharmProjects/chatbot/src/'
+path = '/Users/lijingmeng/Desktop/PLP Project/movie_chatbot/src/'
+# path = '/Users/yanni/PycharmProjects/chatbot/src/'
 # load Intent Detection Model
 
 bigram_vectorizer_filename = path + 'Intent_Detection_bigram_vectorizer.sav'

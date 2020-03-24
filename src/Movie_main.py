@@ -40,6 +40,8 @@ def main(req,mysql):
     elif predicted_Intent[0] == 'recom_upcoming':
         print('Upcoming Recommendation: ')
     elif predicted_Intent[0] == 'aspect_analysis':
+        aspect = ''
+        print(predicted_Slots)
         if predicted_Slots[0][0] == 'aspect':
             movieName = predicted_Slots[1][1]
             aspect = predicted_Slots[0][1]

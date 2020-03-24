@@ -26,20 +26,16 @@ def aspect_score(aspect,sql_results):
         pos_per = num_pos/(num_pos+num_neg)
         pos_per_str = '{:.0%}'.format(pos_per)
         if pos_per > 0.5 and pos_per <= 0.7:
-            result = pos_per_str + ' of the reviewers liked the ' + aspect + ' of ' + sql_results[0][0] + '.\n' \
-                                                                                              'Not bad.'
+            result = 'Among those reviews that mentioned the ' + aspect + ' of ' + sql_results[0][0] + ', ' +pos_per_str + ' of them are positive.\nNot bad.'
         else:
-            result = pos_per_str + ' of the reviewers liked the ' + aspect + ' of ' + sql_results[0][0] + '.\n' \
-                                                                                                        'Pretty good.'
+            result = 'Among those reviews that mentioned the ' + aspect + ' of ' + sql_results[0][0] + ', ' + pos_per_str + ' of them are positive.\nPretty good.'
     else:
         neg_per = num_neg / (num_pos + num_neg)
         neg_per_str = '{:.0%}'.format(neg_per)
         if float(neg_per) > 0.5 and neg_per <= 0.7:
-            result = neg_per_str + ' of the reviewers didn\'t like the ' + aspect + ' of ' + sql_results[0][0] + '.\n' \
-                                                                                              'Not good.'
+            result = 'Among those reviews that mentioned the ' + aspect + ' of ' + sql_results[0][0] + ', ' + neg_per_str + ' of them are negative.\nNot so good.'
         else:
-            result = neg_per_str + ' of the reviewers liked the ' + aspect + ' of ' + sql_results[0][0] + '.\n' \
-                                                                                                        'Seems bad.'
+            result = 'Among those reviews that mentioned the ' + aspect + ' of ' + sql_results[0][0] + ', ' + neg_per_str + ' of them are positive.\nPretty bad.'
 
 
     return result
