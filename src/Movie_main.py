@@ -82,6 +82,7 @@ def main(req,mysql):
                     tips += movie[0] + " is " + movie[1] + " level movie. "
             result = "Here are the recommendations: " + title_str[:-1] + ".\nTips:" + tips
         return result
+
     elif predicted_Intent[0] == 'aspect_analysis':
         movieName = predicted_Slots[1][1]
         aspect = predicted_Slots[0][1]
