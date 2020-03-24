@@ -1,6 +1,7 @@
 from toolbox.api.forms.forms import forms, BaseCreateAPIForm
 from api.service.dictionaries import ServiceDictionary
 from api.service.conversation.demo import ServiceChatBot
+from src.Movie_main import main
 
 
 class ServiceForm(BaseCreateAPIForm):
@@ -12,4 +13,7 @@ class ServiceForm(BaseCreateAPIForm):
         self.content = self.cleaned_data.get("content", None)
 
     def save(self):
-        return dict(content=ServiceChatBot.get_item(self.content))
+        result = main(self.content)
+        if result == "123":
+            object_list = Movie.objects.all().icontains("title")
+        return object_list
