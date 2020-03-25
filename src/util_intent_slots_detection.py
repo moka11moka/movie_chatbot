@@ -38,7 +38,7 @@ def Intent_Slots_Detection(test_phrase):
     if predicted_Intent[0] == 'aspect_analysis':
         test_data = aspect_NLUEngine.parse(test_phrase)
     else:
-        test_data = loaded_NLUEngine.parse(test_phrase)
+        test_data = main_NLUEngine.parse(test_phrase)
     predicted_Slots = []
     for slot in test_data['slots']:
         predicted_Slots.append([slot['slotName'], slot['value']['value']])

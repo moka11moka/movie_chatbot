@@ -67,7 +67,17 @@ nlu_engine = SnipsNLUEngine()
 
 nlu_engine.fit(sample_dataset)
 
-nlu_engine.persist(path + 'Slots_Detection')
+nlu_engine.persist(path + 'Movie_Slots_Detection')
+
+#!snips-nlu generate-dataset en /Users/yanni/PycharmProjects/chatbot/src/Aspect_intent.yaml /Users/yanni/PycharmProjects/chatbot/src/Aspect_entity.yaml  > /Users/yanni/PycharmProjects/chatbot/src/Aspect_dataset.json
+with io.open(path + 'Aspect_dataset.json') as f:
+    aspect_dataset = json.load(f)
+    
+nlu_engine = SnipsNLUEngine()
+
+nlu_engine.fit(aspect_dataset)
+
+nlu_engine.persist(path + 'Aspect_Slots_Detection')
 #jdata = []
 #
 #for train_phrase in X:

@@ -99,6 +99,14 @@ utterances:
   - I would like to watch a [keyword].
   - List some popular [keyword].
   - Suggest some [keyword].
+  - Recommend some interesting movie to watch.
+  - I want to watch a [keyword] film.
+  - Could you recommend some [keyword] movies.
+  - Could you recommend some [keyword] films to me.
+  - I want to watch a [keyword] movie. Any recommendations.
+  - I would like to watch a [keyword] film.
+  - List some popular [keyword] movies.
+  - Suggest some [keyword] movies.
   - What to watch recently.
   - What are the upcoming movies recently.
   - Recommend some upcoming movies.
@@ -120,6 +128,15 @@ utterances:
   - I want to see some [keyword_upcoming] in cinema.
   - I would like to see some new movies.
   - I would like to see some new [keyword_upcoming].
+  - Will any [keyword_upcoming] movies be on recently.
+  - Recommend me some upcoming [keyword_upcoming] films.
+  - Will any [keyword_upcoming] movies be in the theatre recently.
+  - Will any [keyword_upcoming] movies be released recently.
+  - I would like to watch some new [keyword_upcoming] films.
+  - I want to see a new released [keyword_upcoming] movie.
+  - Are there any [keyword_upcoming] movies on show now.
+  - I want to see some [keyword_upcoming] films in cinema.
+  - Are there any new [keyword_upcoming] movies now.
 
 
 # getSummary Intent
@@ -132,7 +149,6 @@ slots:
 
 utterances:
   - What is other audiences think of [movieName].
-  - How is the overall reviews of [movieName].
   - What is the attitude of people for [movieName].
   - How do the other people think of [movieName].
   - Can I know what is the reviews of other people for [movieName].
