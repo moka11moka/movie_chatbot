@@ -24,7 +24,9 @@ loaded_ch21 = pickle.load(open(ch21_filename, 'rb'))
 loaded_crlsvm = pickle.load(open(crlsvm_filename, 'rb'))
 
 ### load Slots Detection Model
-loaded_NLUEngine = SnipsNLUEngine.from_path(path + 'Slots_Detection')
+main_NLUEngine = SnipsNLUEngine.from_path(path + 'Movie_Slots_Detection')
+aspect_NLUEngine = SnipsNLUEngine.from_path(path + 'Aspect_Slots_Detection')
+
 
 def Intent_Slots_Detection(test_phrase):
     if test_phrase[-1] == '?':
@@ -34,8 +36,11 @@ def Intent_Slots_Detection(test_phrase):
     test_bigram_vectors = loaded_bigram_vectorizer.transform([test_phrase])
     test_bigram_Kbest = loaded_ch21.transform(test_bigram_vectors)
     predicted_Intent = loaded_crlsvm.predict(test_bigram_Kbest)
-
-    test_data = loaded_NLUEngine.parse(test_phrase)
+    
+    if predicted_Intent[0] == 'aspect_analysis':
+        test_data = aspect_NLUEngine.parse(test_phrase)
+    else:
+        test_data = loaded_NLUEngine.parse(test_phrase)
     predicted_Slots = []
     for slot in test_data['slots']:
         predicted_Slots.append([slot['slotName'], slot['value']['value']])
