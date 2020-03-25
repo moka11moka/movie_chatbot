@@ -86,10 +86,12 @@ name: getRecom
 slots:
   - name: keyword
     entity: keyword
+  - name: keyword_upcoming
+    entity: keyword_upcoming
 
 utterances:
 
-  - Recommend some [keyword](comedy) to watch.
+  - Recommend some [keyword] to watch.
   - I want to watch a [keyword].
   - Could you recommend some [keyword].
   - Could you recommend some [keyword] to me.
@@ -100,48 +102,25 @@ utterances:
   - What to watch recently.
   - What are the upcoming movies recently.
   - Recommend some upcoming movies.
-  - Will any [keyword] be on recently.
+  - Will any [keyword_upcoming] be on recently.
   - What movies will be on recently.
   - What movie will be released recently.
   - Will there be any upcoming movies recently.
   - Recommend me some upcoming movies.
-  - Recommend me some upcoming [keyword].
+  - Recommend me some upcoming [keyword_upcoming].
   - What movie will be on recently.
   - What movie will be in the theatre recently.
-  - Will any [keyword] be in the theatre recently.
-  - Will any [keyword] be released recently.
+  - Will any [keyword_upcoming] be in the theatre recently.
+  - Will any [keyword_upcoming] be released recently.
   - Tell me the upcoming movies recently.
-  - Are there any new [keyword] recently.
-  - Are there any [keyword] on show.
+  - Are there any new [keyword_upcoming] recently.
+  - Are there any [keyword_upcoming] on show.
   - What movie will be released.
   - I would like to see some on show movies.
-  - I want to see some [keyword] in cinema.
+  - I want to see some [keyword_upcoming] in cinema.
   - I would like to see some new movies.
-  - I would like to see some new [keyword].
+  - I would like to see some new [keyword_upcoming].
 
-
-# getAspect Intent
----
-type: intent
-name: getAspect
-slots:
-  - name: movieName
-    entity: movieName
-  - name: aspect
-    entity: aspect
-
-
-utterances:
-  - How is the [aspect] of [movieName].
-  - What do people say about the [aspect] of [movieName].
-  - How do people think of [aspect] of [movieName].
-  - Is the [aspect] of [movieName] good or bad.
-  - Is the [aspect] of [movieName] good.
-  - Is the [aspect] of [movieName] bad.
-  - I want to know about the performance of [aspect] in [movieName].
-  - Do people like the performance of [aspect] in [movieName].
-  - Should I watch [movieName] for the [aspect].
-  - Is the [aspect] good in [movieName].
 
 # getSummary Intent
 ---
