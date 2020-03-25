@@ -1,0 +1,23 @@
+# getAspect Intent
+---
+type: intent
+name: getAspect
+slots:
+  - name: movieName
+    entity: movieName
+  - name: aspect
+    entity: aspect
+
+
+utterances:
+  - How is the [aspect] of [movieName].
+  - What do people say about the [aspect] of [movieName].
+  - How do people think of [aspect] of [movieName].
+  - Is the [aspect] of [movieName] good or bad.
+  - Is the [aspect] of [movieName] good.
+  - Is the [aspect] of [movieName] bad.
+  - I want to know about the performance of [aspect] in [movieName].
+  - Do people like the performance of [aspect] in [movieName].
+  - Should I watch [movieName] for the [aspect].
+  - Is the [aspect] good in [movieName].
+

@@ -1,0 +1,12 @@
+{
+  "parsers_metadata": [
+    {
+      "entity_identifier": "aspect",
+      "entity_parser": "parser_1"
+    },
+    {
+      "entity_identifier": "movieName",
+      "entity_parser": "parser_2"
+    }
+  ]
+}

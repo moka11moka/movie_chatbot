@@ -1,0 +1,113 @@
+{
+  "config": {
+    "ignore_stop_words": true,
+    "unit_name": "lookup_intent_parser"
+  },
+  "entity_scopes": [
+    {
+      "entity_scope": {
+        "builtin": [],
+        "custom": [
+          "aspect",
+          "movieName"
+        ]
+      },
+      "intent_group": [
+        "getAspect"
+      ]
+    }
+  ],
+  "intents_names": [
+    "getAspect"
+  ],
+  "language_code": "en",
+  "map": {
+    "-851354861": [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    "-749331250": [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    "-679352234": [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    "-519094720": [
+      0,
+      [
+        1,
+        0
+      ]
+    ],
+    "-513122584": [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    "233952768": [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    "313133394": [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    "315742302": [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    "1100929730": [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    "1331063479": [
+      0,
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "slots_names": [
+    "aspect",
+    "movieName"
+  ],
+  "stop_words_whitelist": {
+    "getAspect": [
+      "?",
+      "a",
+      "can",
+      "lol",
+      "man",
+      "me",
+      "ok",
+      "only",
+      "you"
+    ]
+  }
+}
