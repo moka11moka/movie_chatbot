@@ -29,6 +29,7 @@ def main(req,mysql):
     else:
         predicted_Intent, predicted_Slots = Intent_Slots_Detection(req)
         print(predicted_Intent)
+        print(predicted_Slots)
         movieName = ''
     
     if predicted_Intent[0] == 'recom_keyword':
