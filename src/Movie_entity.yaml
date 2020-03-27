@@ -3,7 +3,7 @@
 type: entity
 name: director
 values:
-  - [director, Director, Direct, direct]
+  - [director, Director, Direct, direct, directors]
 
 
 # Movie actor Entity
@@ -11,14 +11,14 @@ values:
 type: entity
 name: actor
 values:
-  - [actor, star, Star, stars, Stars, actors, act, cast]
+  - [actor, star, Star, stars, Stars, actors, actress, act, cast, acting]
 
 # Movie story Entity
 ---
 type: entity
 name: story
 values:
-  - [storyline, Storyline, story, introduction, intro, description]
+  - [storyline, Storyline, story, introduction, intro, description, stories]
 
 
 # Movie User Rating Entity
@@ -48,7 +48,7 @@ values:
 type: entity
 name: genre
 values:
-  - [genre, genres, category, categories]
+  - [genre, genres, category, categories, kind, type, class]
 
 # Movie url Entity
 ---
@@ -64,7 +64,7 @@ name: keyword_upcoming
 values:
   - 'action'
   - 'crime'
-  - 'comedy'
+  - ['comedy', 'comedies']
   - 'drama'
   - 'biography'
   - 'thriller'
@@ -102,7 +102,7 @@ values:
   - 'music'
   - 'romance'
   - 'family'
-  - 'comedy'
+  - ['comedy', 'comedies']
   - 'biography'
   - 'history'
   - 'western'
