@@ -20,20 +20,15 @@ def main(req,mysql):
 
     if last_intent:
         predicted_Intent = last_intent
-        print('last_intent:',last_intent)
         if req == '1'or  req =='2' or req =='3':
-            print('yes')
             predicted_Slots = [['movieName', suggest_lst[int(req)]]]
         else:
             predicted_Slots = [['movieName', req]]
     else:
         predicted_Intent, predicted_Slots = Intent_Slots_Detection(req)
-        print(predicted_Intent)
         movieName = ''
     
     if predicted_Intent[0] == 'recom_keyword':
-        # print(predicted_Slots)
-        print('Keyword Recommendation: ', predicted_Slots[0][1])
         index_str = Genre_Recomm(True,predicted_Slots[0][1])
         if index_str == "":
             index_str = Keyword_Recomm(True,predicted_Slots[0][1])
@@ -61,7 +56,6 @@ def main(req,mysql):
             result = result[0][0]
 
     elif predicted_Intent[0] == 'recom_upcoming':
-        print('Upcoming Recommendation: ')
         if predicted_Slots == []:
             index_str = "30,45,51," # index of top3
         else:
@@ -103,9 +97,7 @@ def main(req,mysql):
                 result = "Sorry, I don't have the information about this movie"
         else:
             result = "Sorry, I don't have the information about this movie"
-        print('Aspect Analysis:', predicted_Slots)
     elif predicted_Intent[0] == 'reviews_summary':
-        print('Summary:', predicted_Slots)
         movieName = predicted_Slots[0][1]
         search_command = "SELECT summary FROM movies" + " where title = '" + movieName + "'"
         result = mysql.ExecQuery(search_command)
@@ -114,7 +106,6 @@ def main(req,mysql):
         else:
             result = result[0][0]
     elif predicted_Intent[0]:
-        print('Basic Info: ', predicted_Intent[0])
         if not predicted_Slots:
             result = "Sorry, I don't understand"
             chatbot = ChatBot('Norman')
@@ -123,7 +114,6 @@ def main(req,mysql):
             for slot in predicted_Slots:
                 if slot[0] == 'movieName':
                     movieName = slot[1]
-                    print(movieName)
             search_command = "SELECT " + predicted_Intent[0] + " FROM movie_all_new" + " where title = '" + movieName + "'"
             myresult = mysql.ExecQuery(search_command)
             if last_intent and myresult == ():
@@ -150,7 +140,6 @@ def main(req,mysql):
 chatbot = ChatBot("bot")
 trainer = ListTrainer(chatbot)
 
-# Get a response to the input text 'I would like to book a flight.'
 req = 'Hi?'
 mysql = MYSQL()
 try:

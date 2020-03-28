@@ -107,6 +107,17 @@ utterances:
   - I would like to watch a [keyword] film.
   - List some popular [keyword] movies.
   - Suggest some [keyword] movies.
+  - Recommend me some [keyword]
+  - I want to see some [keyword] 
+  - Recommend me some [keyword] films
+  - Recommend me some [keyword] movies
+  - I would like to watch some [keyword] films
+  - I would like to watch some [keyword] movies
+  - I want to see a [keyword] movie
+  - I want to see a [keyword] movies
+  - I want to see some [keyword] films
+  - Recommend me some [keyword] movies to watch.
+  - I want to see some [keyword] movies.
   - What to watch recently.
   - What are the upcoming movies recently.
   - Recommend some upcoming movies.
@@ -136,7 +147,11 @@ utterances:
   - I want to see a new released [keyword_upcoming] movie.
   - Are there any [keyword_upcoming] movies on show now.
   - I want to see some [keyword_upcoming] films in cinema.
-  - Are there any new [keyword_upcoming] movies now.
+  - Are there any new [keyword_upcoming] movies now.       
+  - Are there any [keyword_upcoming] movies in the cinemas now
+  - Any new [keyword_upcoming] recently
+  - Any new [keyword_upcoming] movies recently
+
 
 
 # getSummary Intent
