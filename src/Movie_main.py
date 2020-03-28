@@ -35,7 +35,7 @@ def main(req,mysql):
         if index_str == "":
             result = "Sorry, we don't have category " + predicted_Slots[0][1]
         else:
-            cate_recomm = "SELECT title,rating FROM movie_simple " + " where idx in (" + index_str[:-1] + ")"
+            cate_recomm = "SELECT title,rating FROM movie_recom where idx in (" + index_str[:-1] + ")"
             myresult = mysql.ExecQuery(cate_recomm)
             title_str = ""
             tips = ""

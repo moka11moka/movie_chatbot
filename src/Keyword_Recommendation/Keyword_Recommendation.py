@@ -22,7 +22,7 @@ def Keyword_Recomm(flag,slots):
     return index_str
 
 def Genre_Recomm(flag,slots):
-    print("Genre_Recomm" + slots)
+    print("Genre_Recomm " + slots)
     WNlemma = nltk.WordNetLemmatizer()
     genre = WNlemma.lemmatize(slots.lower())
 
