@@ -93,7 +93,7 @@ def main(req,mysql):
             movieName = predicted_Slots[0][1]
             aspect = predicted_Slots[1][1]
         
-        if aspect in ['acting', 'direction', 'screenplay', 'sound', 'story', 'visual']:
+        if aspect in ['acting', 'direction', 'screenplay', 'sound', 'story', 'storyline','visual']:
             print('OK')
             search_command = "SELECT * FROM aspect_sentiment" + " where title = '" + movieName + "'"
             myresult = mysql.ExecQuery(search_command)

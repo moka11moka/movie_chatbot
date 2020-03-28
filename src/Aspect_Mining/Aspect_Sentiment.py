@@ -7,7 +7,8 @@ def aspect_score(aspect,sql_results):
                       'sound_pos':sql_results[0][7],'sound_neg':sql_results[0][8],
                       'story_pos':sql_results[0][9], 'story_neg':sql_results[0][10],
                       'visual_pos':sql_results[0][11],'visual_neg':sql_results[0][12]}
-
+    if aspect == 'storyline':
+        aspect = 'story'
     num_pos = sql_dict[aspect+'_pos']
     num_neg = sql_dict[aspect+'_neg']
 
