@@ -29,13 +29,17 @@ def main(req,mysql):
         movieName = ''
     
     if predicted_Intent[0] == 'recom_keyword':
-        index_str = Genre_Recomm(True,predicted_Slots[0][1])
-        if index_str == "":
-            index_str = Keyword_Recomm(True,predicted_Slots[0][1])
+        if predicted_Slots == []:
+            result = "Sorry, I can't recognize the category "
+            return result
+        else:
+            index_str = Genre_Recomm(True,predicted_Slots[0][1])
+            if index_str == "":
+                index_str = Keyword_Recomm(True,predicted_Slots[0][1])
         if index_str == "":
             result = "Sorry, we don't have category " + predicted_Slots[0][1]
         else:
-            cate_recomm = "SELECT title,rating FROM movie_recom where idx in (" + index_str[:-1] + ")"
+            cate_recomm = "SELECT title,rating FROM movie_simple where idx in (" + index_str[:-1] + ")"
             myresult = mysql.ExecQuery(cate_recomm)
             title_str = ""
             tips = ""
@@ -43,7 +47,9 @@ def main(req,mysql):
                 title_str += movie[0] + ","
                 if movie[1]!="":
                     tips += movie[0] + " is " + movie[1] + " level movie. "
-            result = "Here are the recommendations: "+ title_str[:-1] + ".\nTips:" + tips
+            result = "Here are the recommendations: "+ title_str[:-1]
+            if tips != "":
+                result += "\nTips:" + tips
         return result
 
     elif predicted_Intent[0] == 'recom_similarity':
@@ -142,6 +148,7 @@ trainer = ListTrainer(chatbot)
 
 req = 'Hi?'
 mysql = MYSQL()
+
 try:
     result = main(req, mysql)
 except:
