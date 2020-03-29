@@ -117,15 +117,15 @@
       {
         "args": {
           "entities": [
-            "genre",
-            "languages",
-            "actor",
-            "countries",
             "movieName",
+            "countries",
             "director",
+            "languages",
+            "genre",
+            "rating",
             "imdb_url",
-            "story",
-            "rating"
+            "actor",
+            "story"
           ],
           "entity_filter": {
             "automatically_extensible": true
